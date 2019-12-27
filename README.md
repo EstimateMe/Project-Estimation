@@ -6,9 +6,9 @@ You could use the terminal itself or any GUI such as [gitkraken](https://www.git
 - For Windows users using the terminal:
     1. Open the folder where you would like to clone the repo
     2. Type cmd in the path field
-    3. The terminal should open and then type git clone https://github.com/EstimateMe/Project-Estimation.git
+    3. The terminal should open and then type: git clone https://github.com/EstimateMe/Project-Estimation.git
     
-### Useful git command when using the termial: 
+### Useful git commands when using the terminal: 
 * **git checkout -b branchName** *Creates a branch with branchName and switches to it*
 * **git commit -a -m "the message"** *Creates a commit with all the changes and a commit message*
 * **git commit -o path/to/myfile -m "the message"** *Example for creation of a commit with only the file 'myfile' and a commit message*
