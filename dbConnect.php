@@ -1,6 +1,6 @@
 <?php
-$host = 'localhost:3306'; //port of database
-$dbname = 'user_registration'; //name of database
+$host = 'localhost: 3306'; //port of database
+$dbname = 'estimateme'; //name of database
 $username = 'root';
 $password = '123'; //default=''
 
@@ -8,8 +8,8 @@ $password = '123'; //default=''
 // Create connection
 try {
 	
-    $conn = new PDO('mysql:host=localhost:3306;dbname=user_registration',$username,$password);
-    print "Connected to $dbname at $host successfully.";
+    $conn = new PDO('mysql:host=localhost;dbname=estimateme',$username,$password);
+    //print "Connected to $dbname at $host successfully.";
 	
 } catch (PDOException $pe) {
 
