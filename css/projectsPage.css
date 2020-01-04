@@ -1,0 +1,17 @@
+
+ .projectBox{
+  border-radius: 25px;
+  border: 2px solid #DB4C2C;
+  padding: 20px;
+  width: 200px;
+  height: 120px;
+  padding-top:0px;
+  float: left;
+  margin:20px;
+}
+
+a{
+	   text-decoration: none;
+	   color:black;
+	 
+ }

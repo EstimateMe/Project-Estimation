@@ -1,0 +1,35 @@
+
+.menu {
+  background-color: #DB4C2C;
+  overflow: hidden;
+  float: right;
+  width:100%;
+
+}
+
+.menu a {
+   float:left;
+  color: #f2f2f2;
+  text-align: center;
+  padding:30px 50px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.menu a:hover {
+  background-color: #E99480;
+  color: black;
+}
+
+.menu a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+#logo
+{ padding:0;
+ width:20%;
+ float:left;
+ background-color:#DB4C2C;
+}
