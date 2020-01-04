@@ -26,7 +26,7 @@ if($user == $dbusername && $pass == $dbpassword)
     $_SESSION['session_user']=$user;  
   
     /* Redirect browser */  
-    header("Location: landing_page.html");  
+    header("Location: landing_page.php");  
     }
     }
     }    
