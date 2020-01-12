@@ -1,6 +1,7 @@
 <?php
 // Start the session
 session_start();
+$project_name = $_GET['name'];
 ?>
 
     <html>
@@ -36,11 +37,12 @@ session_start();
                             <!-- Modal content -->
                             <div class="modal-content">
                                 <h2><center>Създаване на нова задача</center></h2>
-                                <form id="create-task-form" name="login_form" method="post" action="login_script.php">
+                                <form id="create-task-form" name="login_form" method="post" action="task_creation.php">
 
-                                    Заглавие<input type="text" name="username">
-                                    Описание<textarea rows="4" cols="50" name="description" form="create-task-form"> </textarea>
-                                    
+                                    Заглавие<input type="text" name="task_title">
+                                    Описание<textarea rows="4" cols="50" name="task_description" form="create-task-form"> </textarea>
+                                    <!-- pass the project name to task_creation.php but not display it-->
+                                    <input type='hidden' name='project_name' value='<?php echo "$project_name";?>'/> 
 
                                     <input id="create-button" type="submit" name="submit" class="btn" value="Създай">
                                 </form>
