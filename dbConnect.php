@@ -2,7 +2,7 @@
 $host = 'localhost: 3306'; //port of database
 $dbname = 'estimateme'; //name of database
 $username = 'root';
-$password = '123'; //default=''
+$password = ''; //default=''
 
 
 // Create connection
