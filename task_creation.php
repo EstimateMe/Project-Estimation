@@ -1,6 +1,7 @@
 <?php
    #var_dump($_POST);
 if(isset($_POST["submit"])){ 
+require_once('nav_menu.php');
 
 require_once('dbConnect.php');
 

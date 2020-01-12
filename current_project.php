@@ -2,6 +2,12 @@
 // Start the session
 session_start();
 $project_name = $_GET['name'];
+   require_once('dbConnect.php');
+  $sql = 'SELECT * FROM `task` where project_name=?';
+  $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$project_name]);
+  $tasks = $stmt->fetchAll();
 ?>
 
     <html>
@@ -27,10 +33,19 @@ $project_name = $_GET['name'];
                         <br>
                         <!-- TODO: populate description from DB -->
                         <div>
-
                         </div>
-                        <section>
-                        </section>
+                        <div>
+                        <?php 
+                            foreach($tasks as $task) {
+                            $title = $task->title;
+                            $description = $task->description;
+                              echo '<h2>' . $title . '</h2>' 
+                                    . 'Description: '
+                                    . $description 
+                                    . '<br> <br>';
+                            }
+                            ?>
+                        </div>
                         <!-- The Modal -->
                         <div id="myModal" class="modal">
 
@@ -39,10 +54,11 @@ $project_name = $_GET['name'];
                                 <h2><center>Създаване на нова задача</center></h2>
                                 <form id="create-task-form" name="login_form" method="post" action="task_creation.php">
 
-                                    Заглавие<input type="text" name="task_title">
-                                    Описание<textarea rows="4" cols="50" name="task_description" form="create-task-form"> </textarea>
+                                    Заглавие
+                                    <input type="text" name="task_title"> Описание
+                                    <textarea rows="4" cols="50" name="task_description" form="create-task-form"> </textarea>
                                     <!-- pass the project name to task_creation.php but not display it-->
-                                    <input type='hidden' name='project_name' value='<?php echo "$project_name";?>'/> 
+                                    <input type='hidden' name='project_name' value='<?php echo "$project_name";?>' />
 
                                     <input id="create-button" type="submit" name="submit" class="btn" value="Създай">
                                 </form>
