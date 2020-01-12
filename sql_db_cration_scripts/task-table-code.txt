@@ -1,0 +1,5 @@
+CREATE TABLE `estimateme`.`task` ( 
+`title` VARCHAR(200) NOT NULL , 
+`description` VARCHAR(500) NULL , 
+`project_name` VARCHAR(255) NOT NULL , 
+PRIMARY KEY (`title`, `project_name`));

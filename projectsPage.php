@@ -36,8 +36,7 @@ session_start();
   $stmt->execute([$projectName]);
   $row = $stmt->fetch();
   $creationDate= $row->created_at;
-  
-  echo '<a href="current_project.php"> <span class="projectBox" >';
+  echo '<a href="current_project.php?name=' . $projectName . '"> <span class="projectBox" >';
 	  print('<h3>' . $projectName . '</h3>' 
 	   . 'The owner is: '
 	   . $lead 
