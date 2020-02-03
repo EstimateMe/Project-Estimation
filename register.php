@@ -14,7 +14,7 @@ Project Estimation
 <div class="container">
 					 
 <div class="form_holder">
-<h2><center>Register</center></h2>
+<h2><center>Регистрация</center></h2>
 <form id="register_form" method="post" action="register_script.php" onsubmit="return validateForm();">
 
    Тип акаунт: 
@@ -34,7 +34,7 @@ Project Estimation
    Повтори Парола: <input type="password" name="confirm_password">
    <span id="error-confirm-password" class="err"></span><br>
    
-   <input type="submit" name = "submit" class="btn" value="Register"><br>
+   <input type="submit" name = "submit" class="btn" value="Регистрирай се"><br>
    </form>
    </div>
    <div class="footer"> Made by Diana Ivanova, Svetlana Grueva &amp Yana Zdravkova</div>

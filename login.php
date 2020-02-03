@@ -17,7 +17,7 @@ Project Estimation
 
 						 
 <div class="form_holder">
-<h2><center>Login</center></h2>
+<h2><center>Вход</center></h2>
 <form id="login_form" name="login_form" method="post" action="login_script.php">
 
    Потребителско име: <input type="text" name="username" value="">
