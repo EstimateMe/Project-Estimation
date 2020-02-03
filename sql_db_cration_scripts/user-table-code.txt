@@ -1,3 +1,4 @@
+HEAD
 To setup the Database follow the steps here https://www.youtube.com/watch?v=N676lCQq4n8
 
 
@@ -18,3 +19,4 @@ CREATE TABLE IF NOT EXISTS `user` (
   `account_type` enum('Manager','Developer') NOT NULL, 
   PRIMARY KEY (`username`)  
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+2bfbf4f9ee1dd0273ea78eb68317c1f6b21cd1c3
