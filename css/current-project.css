@@ -9,8 +9,9 @@ position: relative;
 left: 75%;
 top: 20;
  }
+ 
 
- #create-button {
+ #create-button, #display-button {
    color: #fff !important;
 text-transform: uppercase;
 background: #DB4C2C;
@@ -29,7 +30,6 @@ text-align: center;
 
    color: #DB4C2C;
  }
- 
 
 /* The Modal (background) */
 .modal {
