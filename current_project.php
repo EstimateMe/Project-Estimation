@@ -36,16 +36,22 @@ $project_name = $_GET['name'];
                         <div>
                         </div>
                         <div>
+                        <table class="tasks-table">
+                        <tr>
+                        <th>Име на задачата</th>
+                        <th>Описание</th>
+                        <th>Сложност</th>
+                        </tr>
                         <?php 
                             foreach($tasks as $task) {
                             $title = $task->title;
                             $description = $task->description;
-                              echo '<h2>' . $title . '</h2>' 
-                                    . 'Description: '
+                              echo '<tr> <td>' . $title . '</td> <td>'
                                     . $description 
-                                    . '<br> <br>';
+                                    . '</td> <td> 3 </td> </tr>';
                             }
                             ?>
+                        </table>
                         </div>
                         <!-- The Modal -->
                         <div id="myModal" class="modal">
@@ -56,10 +62,8 @@ $project_name = $_GET['name'];
                                 <form id="create-task-form" name="login_form" method="post" action="task_creation.php">
 
                                     Заглавие
-                                    <input type="text" name="task_title" id="task_title"> 
-									<div id="suggesstion-box"></div>
-									Описание
-                                    <textarea rows="4" cols="50" name="task_description" id="task_description" form="create-task-form"> </textarea>
+                                    <input type="text" name="task_title"> Описание
+                                    <textarea rows="5" cols="50" name="task_description" form="create-task-form"> </textarea>
                                     <!-- pass the project name to task_creation.php but not display it-->
                                     <input type='hidden' name='project_name' value='<?php echo "$project_name";?>' />
 
