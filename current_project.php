@@ -15,6 +15,7 @@ $project_name = $_GET['name'];
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/current-project.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="current-project.js"></script>
         <title> EstimateMe</title>
     </head>
@@ -55,12 +56,15 @@ $project_name = $_GET['name'];
                                 <form id="create-task-form" name="login_form" method="post" action="task_creation.php">
 
                                     Заглавие
-                                    <input type="text" name="task_title"> Описание
-                                    <textarea rows="4" cols="50" name="task_description" form="create-task-form"> </textarea>
+                                    <input type="text" name="task_title" id="task_title"> 
+									<div id="suggesstion-box"></div>
+									Описание
+                                    <textarea rows="4" cols="50" name="task_description" id="task_description" form="create-task-form"> </textarea>
                                     <!-- pass the project name to task_creation.php but not display it-->
                                     <input type='hidden' name='project_name' value='<?php echo "$project_name";?>' />
 
                                     <input id="create-button" type="submit" name="submit" class="btn" value="Създай">
+                                    <input id="display-button" type="button" name="display-button" class="btn" value="Покажи сходна задача">
                                 </form>
                             </div>
 
