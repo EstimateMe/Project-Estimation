@@ -1,7 +1,5 @@
 <?php
-   #var_dump($_POST);
-if(isset($_POST["submit"])){ 
-
+#echo $_POST['account_type'];
 require_once('dbConnect.php');
 
 $user=$_POST['username'];  
@@ -24,8 +22,6 @@ if($q->rowCount() == 0) //no users with such username/password combination
 else
 {
 	echo "Username already exists!";
-}
-
 }
 
 ?>

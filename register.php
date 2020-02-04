@@ -2,6 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="validate_registration.js"></script>
 <title>
 Project Estimation
@@ -15,7 +16,7 @@ Project Estimation
 					 
 <div class="form_holder">
 <h2><center>Регистрация</center></h2>
-<form id="register_form" method="post" action="register_script.php" onsubmit="return validateForm();">
+<form id="register_form" method="post">
 
    Тип акаунт: 
    <input type="radio" name="account_type" value="Manager"> Manager
@@ -34,8 +35,10 @@ Project Estimation
    Повтори Парола: <input type="password" name="confirm_password">
    <span id="error-confirm-password" class="err"></span><br>
    
-   <input type="submit" name = "submit" class="btn" value="Регистрирай се"><br>
+   <input id ="register" type="button" name = "submit" class="btn" value="Регистрирай се"><br>
    </form>
+   <div id="result"></div>
+   </div>
    </div>
    <div class="footer"> Made by Diana Ivanova, Svetlana Grueva &amp Yana Zdravkova</div>
 </div>

@@ -34,3 +34,26 @@ function validateForm(){
        	return false;
     }            
 }
+
+window.onload = function () {
+  console.log('loaded');
+
+$('#register').click(function() {
+	console.log('register');
+	
+$.ajax({
+    type: 'POST',
+    url: "register_script.php",
+    data: $('#register_form').serialize()
+})
+.done(function(data){
+
+//Set the message text
+$('#result').text(data);
+
+//Clear the form
+$('#register_form')[0].reset();
+
+});
+});
+}

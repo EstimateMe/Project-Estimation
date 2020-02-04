@@ -31,7 +31,7 @@ function updateValue(e) {
   log.textContent = e.target.value;
 }
 
-$("#display-button").click(function(){
+$('#display-button').click(function(){
 var tasktitle=$('#task_title').val();
 
 $.ajax({
