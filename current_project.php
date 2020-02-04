@@ -62,8 +62,8 @@ $project_name = $_GET['name'];
                                 <form id="create-task-form" name="login_form" method="post" action="task_creation.php">
 
                                     Заглавие
-                                    <input type="text" name="task_title"> Описание
-                                    <textarea rows="5" cols="50" name="task_description" form="create-task-form"> </textarea>
+                                    <input type="text" name="task_title" id="task_title"> Описание
+                                    <textarea rows="5" cols="50" name="task_description" id="task_description" form="create-task-form"> </textarea>
                                     <!-- pass the project name to task_creation.php but not display it-->
                                     <input type='hidden' name='project_name' value='<?php echo "$project_name";?>' />
 
