@@ -1,3 +1,32 @@
+<?php
+#var_dump($_POST);
+$msg="";
+if(isset($_POST["submit"])){ 
+ 
+  require_once('dbConnect.php');
+
+    $user=$_POST['username'];  
+    $pass=$_POST['password'];
+	
+    $q = $conn->prepare("SELECT * FROM user WHERE username=:username");
+	$q->execute(['username'=>$user]);
+	
+    if($q->rowCount()>0) {
+		$row = $q->fetch();
+    
+        if( password_verify($pass,$row['password'])) {
+			session_start();  
+            $_SESSION['session_user']=$user;  
+  
+            /* Redirect browser */  
+            header("Location: landing_page.php");  
+		}
+	}
+	else  
+		$msg="Invalid username or password!";  
+    }    	
+
+?>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -15,10 +44,15 @@ Project Estimation
 <center>Project Estimation</center>
 </div>
 
-						 
 <div class="form_holder">
 <h2><center>Вход</center></h2>
-<form id="login_form" name="login_form" method="post" action="login_script.php">
+
+<?php 
+if ($msg != "") 
+	echo $msg . "<br><br>"; 
+?>
+
+<form id="login_form" name="login_form" method="post" action="login.php">
 
    Потребителско име: <input type="text" name="username" value="">
    <span class="error"></span>
@@ -27,7 +61,6 @@ Project Estimation
    <span class="error"></span>
    
    <input type="submit" name="submit" class="btn" value="Вход">
-
 
    <a href="register.php" class="btn">Регистрация</a>
    </form>

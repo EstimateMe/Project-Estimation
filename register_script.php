@@ -7,6 +7,7 @@ $pass=$_POST['password'];
 $email=$_POST['email'];
 $account=$_POST['account_type'];
 
+$hash=password_hash($_POST['password'], PASSWORD_BCRYPT);
 
 $q = $conn->prepare("SELECT * FROM user WHERE username=:username");
 $q->execute(['username'=>$user]);
@@ -15,9 +16,8 @@ if($q->rowCount() == 0) //no users with such username/password combination
 {
 	$sql=$conn->prepare("INSERT INTO `user`(`username`, `password`, `email`, `account_type`) 
 	      VALUES (:username,:password,:email,:account_type)");
-		  $sql->execute(['username'=>$user,'password'=>$pass,'email'=>$email,'account_type'=>$account]);
-		  echo "\nUser successfully created!";
-		  
+		  $sql->execute(['username'=>$user,'password'=>$hash,'email'=>$email,'account_type'=>$account]);
+		  echo 'User successfully created!';
 }
 else
 {

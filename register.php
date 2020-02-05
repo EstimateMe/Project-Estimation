@@ -11,7 +11,6 @@ Project Estimation
 <link rel="stylesheet" href="main.css">
 </head>
 <body>
-
 <div class="container">
 					 
 <div class="form_holder">
@@ -35,7 +34,8 @@ Project Estimation
    Повтори Парола: <input type="password" name="confirm_password">
    <span id="error-confirm-password" class="err"></span><br>
    
-   <input id ="register" type="button" name = "submit" class="btn" value="Регистрирай се"><br>
+   <input id ="register" type="button" name = "submit" class="btn" value="Регистрирай се">
+   <a href="login.php" class="btn">Вход</a>
    </form>
    <div id="result"></div>
    </div>
