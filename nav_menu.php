@@ -6,7 +6,7 @@
 			<a id="logo" href="landing_page.php"> 
 			<img width=40%  src="images/logo.png"> </a> 
 			<a href="projectsPage.php">Проекти</a>
-			<a href="#create">Създай проект</a>
+			<a href="#import">Импорт/Експорт</a>
 			<a href="#profile">Профил</a>
 	</nav>
 </body>

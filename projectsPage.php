@@ -1,27 +1,60 @@
 <?php
-// Start the session
 session_start();
+ require_once('nav_menu.php');
+   require_once('dbConnect.php');
+    $user = $_SESSION['session_user'];
+	$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 ?>
 
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<link href="css/projectsPage.css" rel="stylesheet">
+		<link href="css/projectsPage.css" rel="stylesheet">
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="createProjectScript.js"></script>
+		<link href="css/createProject.css" rel="stylesheet">
+	
+		
 	<title> EstimateMe</title>
 </head>
 
 <body>
+            <main>
+                <div>
+				<?php
+				  $sql = 'SELECT * FROM `user` WHERE username=?';
+				 
+				$stmt = $conn->prepare($sql);
+				$stmt->execute([$user]);
+				$row = $stmt->fetch();
+				$accType=$row->account_type;
+				
+				if ($accType == "Manager"){
+                   echo '<button id="create-project-button">Създай нов проект</button>';
+				
+				}
+				?>
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                                <form id="create-project-form" name="login_form" method="post" action="project_creation.php">
+
+                                    Заглавие:
+                                    <input type="text" name="project_name" id="project_name"> 
+									 <input type="hidden" name="user" value='<?php echo "$user";?>' />
+                                    <input id="create-button" type="submit" name="submit" class="btn" value="Създай">
+                                </form>
+                            </div>
+                    </div>
+                </div>
+
 	 <?php
-	 require_once('nav_menu.php');
-  $user = $_SESSION['session_user'];
-   require_once('dbConnect.php');
+	 
+	 
   $sql = 'SELECT * FROM `project-user` where username=?';
-  $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
   $stmt = $conn->prepare($sql);
   $stmt->execute([$user]);
   $projectUsers = $stmt->fetchAll();
   
   $TRUE_ST = true;
- // echo '<br>';
    foreach($projectUsers as $projectUser){
    $projectName = $projectUser->projectName;
    
@@ -51,9 +84,7 @@ session_start();
 	 ?>
 	 
 	
-	<main>
-		<section>	
-		</section>
+	
 	</main>
 		<footer id="end">
 			
