@@ -21,6 +21,8 @@ if(isset($_POST["submit"])){
             /* Redirect browser */  
             header("Location: landing_page.php");  
 		}
+		else 
+			$msg="Invalid password!";
 	}
 	else  
 		$msg="Invalid username or password!";  

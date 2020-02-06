@@ -8,6 +8,7 @@
 			<a href="projectsPage.php">Проекти</a>
 			<a href="#import">Импорт/Експорт</a>
 			<a href="#profile">Профил</a>
+			<a href="logout.php">Изход</a>
 	</nav>
 </body>
 </html>
