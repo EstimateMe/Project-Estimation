@@ -42,6 +42,15 @@ data:{title:tasktitle}
 .done(function(data){
 $('#task_description').html(data);
 });
+});
 
+//Tags display
+$(function() {
+	$('#tags').tags({
+		requireData:true,
+		unique:true
+	}).autofill({
+		data: ["javascript","php","sql","html"]
+	});
 });
 }
