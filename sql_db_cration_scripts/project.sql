@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2020 at 08:26 AM
+-- Generation Time: Feb 07, 2020 at 08:27 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -25,29 +25,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `task`
+-- Table structure for table `project`
 --
 
-CREATE TABLE `task` (
-  `title` varchar(200) NOT NULL,
-  `description` varchar(500) DEFAULT NULL,
-  `project_name` varchar(255) NOT NULL,
-  `creation_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `status` enum('in_progress','finished') NOT NULL,
-  `finish_date` date DEFAULT NULL,
-  `expert_estimation` int(11) NOT NULL,
-  `tags` varchar(255) NOT NULL,
-  `actual_hours` int(11) DEFAULT NULL
+CREATE TABLE `project` (
+  `name` varchar(255) NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `expert_estimation` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `task`
--
+-- Dumping data for table `project`
 --
--- Indexes for table `task`
 --
-ALTER TABLE `task`
-  ADD PRIMARY KEY (`title`,`project_name`);
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`name`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
