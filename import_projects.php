@@ -21,7 +21,7 @@ $data     = json_decode($jsondata);
 
 foreach ($data as $projectJson) {
     $name              = $projectJson->name;
-    $created_at        = $projectJson->created_at; // TODO: handle
+    $created_at        = $projectJson->created_at;
     $expert_estimation = $projectJson->expert_estimation;
     
     $sql = $conn->prepare("INSERT INTO `project`(`name`, `created_at`, `expert_estimation`) 
