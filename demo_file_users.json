@@ -1,0 +1,20 @@
+[
+    {
+      "username": "Georgi Petrov",
+      "password": "9999",
+      "email": "mail_1@fake.com",
+      "account_type": "Manager"
+    },
+    {
+        "username": "Maria Dimitrova",
+        "password": "8888",
+        "email": "mail_2@fake.com",
+        "account_type": "Developer"
+    },
+    {
+        "username": "Lubo Ivanov",
+        "password": "7777",
+        "email": "mail_3@fake.com",
+        "account_type": "Developer"
+    }
+  ]
