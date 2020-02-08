@@ -2,6 +2,7 @@
 // Start the session
 session_start();
    require_once('dbConnect.php');
+   $user = $_SESSION['session_user'];
   $sql = 'SELECT * FROM `task` where project_name=?';
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 ?>
@@ -16,8 +17,14 @@ session_start();
     $data = json_decode($jsondata);
     $name = $data->name;
     $created_at = $data->created_at; // TODO: handle
-
-    echo '<div>' . $created_at . '</div>';
+    $expert_estimation = $data->expert_estimation;
+    $sql=$conn->prepare("INSERT INTO `project`(`name`, `created_at`, `expert_estimation`) 
+	      VALUES (:name,:created_at,:expert_estimation)");
+      $sql->execute(['name'=>$name,'created_at'=>$created_at,'expert_estimation'=>$expert_estimation]);
+    $sql=$conn->prepare("INSERT INTO `project-user`(`username`, `projectName`, `isOwner`) 
+      VALUES (:username,:projectName,:isOwner)");
+    $sql->execute(['username'=>$user,'projectName'=>$name,'isOwner'=>true]);
+      echo "\nDATA SUCCESSFULY IMPORTED!";
 ?>
 </body>
 </html>
