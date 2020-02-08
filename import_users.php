@@ -35,7 +35,7 @@ foreach ($data as $userJson) {
         $import_failure_count++;
     }
 }
-echo 'SUCCESSFUL ' .$import_success_count. ' FAILED ' .$import_failure_count. '';
+echo 'SUCCESSFUL ' .$import_success_count. ' <br/>FAILED ' .$import_failure_count. '';
 }
 ?>
 </body>
