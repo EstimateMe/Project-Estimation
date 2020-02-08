@@ -24,6 +24,7 @@ text-align: center;
     top:50%; 
     left:40%;
  }
+
  .description {
    text-align: center;
    position: relative;
@@ -86,7 +87,7 @@ textarea {
    margin-right:auto;
 }
 
-table, td, {
+table, td {
   border: 1px solid black;
 }
 

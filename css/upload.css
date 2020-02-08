@@ -1,0 +1,36 @@
+table {
+    border: 1px solid black;
+  }
+  
+  td {
+    height: 40px;
+    font-size: 21px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #444444;
+  }
+
+  .upload-table {
+    border: none;
+    border-spacing: 50px;
+    width: 80%;
+    margin-left:auto; 
+    margin-right:auto;
+    position: relative;
+    bottom: -50px;
+ }  
+  .execute-import-button {
+    border: 2px solid #DB4C2C;
+    color: #DB4C2C;
+    background-color: white;
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+  }
+  
+  input {
+      margin-bottom: 10px;
+}

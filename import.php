@@ -6,14 +6,17 @@ $user = $_SESSION['session_user'];
 $sql  = 'SELECT * FROM `task` where project_name=?';
 $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 ?>
-
 <html>
-<head>
-</head>
 <body>
+    <?php require_once('nav_menu.php') ?>
+</body>
+</html>
 <?php
-//read the json file contents
-$jsondata = file_get_contents('test.json');
+if ($_FILES["file"]["error"] > 0) {
+  echo "Error: No file supplied ";
+} else {
+// read the json file contents
+$jsondata = file_get_contents( $_FILES["file"]["name"]);
 $data     = json_decode($jsondata);
 
 foreach ($data as $projectJson) {
@@ -30,7 +33,7 @@ foreach ($data as $projectJson) {
     $sql->execute(['username'=>$user,'projectName'=>$name,'isOwner'=>true]);
 
     echo "\nDATA SUCCESSFULY IMPORTED!";
-    
+}
 }
 ?>
 </body>
