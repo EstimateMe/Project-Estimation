@@ -18,22 +18,29 @@ if ($_FILES["file"]["error"] > 0) {
 // read the json file contents
 $jsondata = file_get_contents( $_FILES["file"]["name"]);
 $data     = json_decode($jsondata);
+$import_success_count = 0;
+$import_failure_count = 0;
 
 foreach ($data as $projectJson) {
     $name              = $projectJson->name;
     $created_at        = $projectJson->created_at;
     $expert_estimation = $projectJson->expert_estimation;
     
+    // Insert project in DB
     $sql = $conn->prepare("INSERT INTO `project`(`name`, `created_at`, `expert_estimation`) 
           VALUES (:name,:created_at,:expert_estimation)");
-    $sql->execute(['name'=>$name,'created_at'=>$created_at,'expert_estimation'=>$expert_estimation]);
+    if($sql->execute(['name'=>$name,'created_at'=>$created_at,'expert_estimation'=>$expert_estimation])) {
+      $import_success_count++;
+    } else {
+      $import_failure_count++;
+    }
 
+    // Make current user the owner of the project in DB
     $sql = $conn->prepare("INSERT INTO `project-user`(`username`, `projectName`, `isOwner`) 
       VALUES (:username,:projectName,:isOwner)");
     $sql->execute(['username'=>$user,'projectName'=>$name,'isOwner'=>true]);
-
-    echo "\nDATA SUCCESSFULY IMPORTED!";
 }
+echo 'SUCCESSFUL ' .$import_success_count. ' FAILED ' .$import_failure_count. '';
 }
 ?>
 </body>

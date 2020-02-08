@@ -2,7 +2,6 @@
 // Start the session
 session_start();
 require_once('dbConnect.php');
-$user = $_SESSION['session_user'];
 $sql  = 'SELECT * FROM `task` where project_name=?';
 $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 ?>
@@ -18,6 +17,8 @@ if ($_FILES["file"]["error"] > 0) {
 // read the json file contents
 $jsondata = file_get_contents( $_FILES["file"]["name"]);
 $data     = json_decode($jsondata);
+$import_success_count = 0;
+$import_failure_count = 0;
 
 foreach ($data as $userJson) {
     $username = $userJson->username;
@@ -25,11 +26,16 @@ foreach ($data as $userJson) {
     $email = $userJson->email;
     $account_type = $userJson->account_type;
     
+    // Insert user in DB
     $sql = $conn->prepare("INSERT INTO `user`(`username`, `password`, `email`, `account_type`) 
           VALUES (:username, :password, :email, :account_type)");
-    $sql->execute(['username'=>$username,'password'=>$password,'email'=>$email,'account_type'=>$account_type]);
-    echo "\nDATA SUCCESSFULY IMPORTED!";
+    if($sql->execute(['username'=>$username,'password'=>$password,'email'=>$email,'account_type'=>$account_type])){
+        $import_success_count++;
+    } else {
+        $import_failure_count++;
+    }
 }
+echo 'SUCCESSFUL ' .$import_success_count. ' FAILED ' .$import_failure_count. '';
 }
 ?>
 </body>
