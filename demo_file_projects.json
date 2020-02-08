@@ -1,12 +1,57 @@
 [
   {
-    "name": "First 1 Project",
+    "name": "Оценяване на проекти",
     "created_at": "2020-01-04 19:42:20",
-    "expert_estimation": "5"
+    "expert_estimation": "55",
+    "tasks": [
+      { 
+        "title": "Login форма",
+        "description": "Да се създаде login форма, която с полета име и парола.",
+        "expert_estimation": 2,
+        "tags": "1"
+       }, 
+       {
+        "title": "Създаване на таблица Потребители в базата",
+        "description": "Да се създаде таблица Потребители в базата, която с полета име и парола.",
+        "expert_estimation": "1",
+        "tags": ""
+       },
+       { 
+        "title": "Валидация на Login форма",
+        "description": "Потребителското име трябва да е уникално. Паролата да съдържа една цифра, един специален символ и една главна буква",
+        "expert_estimation": "2",
+        "tags": ""
+       },
+       {
+        "title": "Бутон Създай задача",
+        "description": "Да се направи бутон Създай задача, който при кликване, отваря модал с текстови полета за име и описание на задачата",
+        "expert_estimation": "3",
+        "tags": ""
+       },
+       { 
+        "title": "Импорт на потребители",
+        "description": "Да се имплементира импорт на потребители в JSON формат.",
+        "expert_estimation": "5",
+        "tags": ""
+       },
+       { "title": "Навигация",
+        "description": "Навигация на системата",
+        "expert_estimation": "3",
+        "tags": ""
+       }
+    ]
   },
   {
-    "name": "Second 2 Project",
-    "created_at": "2020-01-04 19:42:20",
-    "expert_estimation": "20"
+    "name": "Заетост на Зали ФМИ",
+    "created_at": "2020-02-10 08:30:20",
+    "expert_estimation": "40",
+
+    "tasks": [
+      { "title": "Login форма",
+        "description": "Да се създаде login форма, която с полета име и парола.",
+        "expert_estimation": 2,
+        "tags": ""
+       }
+    ]
   }
 ]

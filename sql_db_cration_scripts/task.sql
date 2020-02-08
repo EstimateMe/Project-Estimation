@@ -33,7 +33,7 @@ CREATE TABLE `task` (
   `description` varchar(500) DEFAULT NULL,
   `project_name` varchar(255) NOT NULL,
   `creation_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `status` enum('in_progress','finished') NOT NULL,
+  `status` enum('to_do','in_progress','finished') NOT NULL,
   `finish_date` date DEFAULT NULL,
   `expert_estimation` int(11) NOT NULL,
   `tags` varchar(255) NOT NULL,
