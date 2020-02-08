@@ -78,7 +78,7 @@ session_start();
 	   . 'created at: '
 	   . '<br>'
 	   . $creationDate
-	   . '<br>'
+	   . '<br> <br>'
 	   . 'Expert estimation: '
 	   . $estimateProject
 	   . '<br>');
