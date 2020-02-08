@@ -1,0 +1,9 @@
+#drop_zone {
+  border: 5px solid blue;
+  width:  200px;
+  height: 100px;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 30%;
+}
