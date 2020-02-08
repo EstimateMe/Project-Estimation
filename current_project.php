@@ -8,6 +8,17 @@ $project_name = $_GET['name'];
   $stmt = $conn->prepare($sql);
   $stmt->execute([$project_name]);
   $tasks = $stmt->fetchAll();
+
+  //Get the tags from the tags table
+  $q = $conn->prepare("SELECT tag FROM tags");
+  $q->execute();
+
+$a=array();
+  $rows = $q->fetchAll();
+  foreach($rows as $row):
+  array_push($a,$row->tag);
+  endforeach;
+  #echo json_encode($a);
 ?>
 
     <html>
@@ -15,10 +26,10 @@ $project_name = $_GET['name'];
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/current-project.css" rel="stylesheet">
-		<link rel="stylesheet" href="tags.css">
+        <link rel="stylesheet" href="tags.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script type="text/javascript" src="autofill.js"></script>
-		<script type="text/javascript" src="tags.js"></script>
+        <script type="text/javascript" src="autofill.js"></script>
+        <script type="text/javascript" src="tags.js"></script>
         <script src="current-project.js"></script>
         <title> EstimateMe</title>
     </head>
@@ -39,13 +50,13 @@ $project_name = $_GET['name'];
                         <div>
                         </div>
                         <div>
-                        <table class="tasks-table">
-                        <tr>
-                        <th>Име на задачата</th>
-                        <th>Описание</th>
-                        <th>Сложност</th>
-                        </tr>
-                        <?php 
+                            <table class="tasks-table">
+                                <tr>
+                                    <th>Име на задачата</th>
+                                    <th>Описание</th>
+                                    <th>Сложност</th>
+                                </tr>
+                                <?php 
                             foreach($tasks as $task) {
                             $title = $task->title;
                             $description = $task->description;
@@ -54,7 +65,7 @@ $project_name = $_GET['name'];
                                     . '</td> <td> 3 </td> </tr>';
                             }
                             ?>
-                        </table>
+                            </table>
                         </div>
                         <!-- The Modal -->
                         <div id="myModal" class="modal">
@@ -65,12 +76,30 @@ $project_name = $_GET['name'];
                                 <form id="create-task-form" name="login_form" method="post" action="task_creation.php">
 
                                     Заглавие
-                                    <input type="text" name="task_title" id="task_title">
-									Описание
+                                    <input type="text" name="task_title" id="task_title"> Описание
                                     <textarea rows="5" cols="50" name="task_description" id="task_description" form="create-task-form"> </textarea>
-									Tags
+                                    Tags
 									<input type="text" id="tags" name="tags">
 									
+									<!--pass the possible tag values to a hidden filed-->
+                                    <input type='hidden' id='arr' value='<?php echo ' "'.implode(',', $a).'" ' ?>'>
+                                    <script type="text/javascript">
+                                        //Functionality for tag display and autofill
+                                        $(function() {
+                                            console.log(typeof $('#arr')); //object
+                                            var p = $('#arr').val();
+                                            p = p.split(',');
+                                            console.log(typeof p); //string
+
+                                            $('#tags').tags({
+                                                requireData: true,
+                                                unique: true
+                                            }).autofill({
+                                                data: p
+                                            });
+                                        });
+                                    </script>
+
                                     <!-- pass the project name to task_creation.php but not display it-->
                                     <input type='hidden' name='project_name' value='<?php echo "$project_name";?>' />
 
