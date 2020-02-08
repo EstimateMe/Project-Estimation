@@ -78,8 +78,6 @@ $a=array();
                                     Заглавие
                                     <input type="text" name="task_title" id="task_title"> Описание
                                     <textarea rows="5" cols="50" name="task_description" id="task_description" form="create-task-form"> </textarea>
-                                    Tags
-									<input type="text" id="tags" name="tags">
 									
 									<!--pass the possible tag values to a hidden filed-->
                                     <input type='hidden' id='arr' value='<?php echo ' "'.implode(',', $a).'" ' ?>'>
@@ -102,6 +100,8 @@ $a=array();
 
                                     <!-- pass the project name to task_creation.php but not display it-->
                                     <input type='hidden' name='project_name' value='<?php echo "$project_name";?>' />
+									Tags
+									<input type="text" id="tags" name="tags">
 
                                     <input id="create-button" type="submit" name="submit" class="btn" value="Създай">
                                     <input id="display-button" type="button" name="display-button" class="btn" value="Покажи сходна задача">
