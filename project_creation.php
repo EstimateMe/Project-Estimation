@@ -6,7 +6,6 @@ require_once('dbConnect.php');
 $user = $_POST['user'];
 $project_name=$_POST['project_name'];
 $timestamp = date('Y-m-d H:i:s');
-echo $timestamp;
 
 $q = $conn->prepare("SELECT * FROM `project` WHERE name=:project_name");
 $q->execute(['project_name'=>$project_name]);
@@ -19,7 +18,7 @@ $sql=$conn->prepare("INSERT INTO `project`(`name`, `created_at`)
 	      VALUES (:project_name, :created_at)");
 		  $sql->execute(['project_name'=>$project_name, ':created_at'=>$timestamp]);
 		  
-$sql2=$conn->prepare("INSERT INTO `project-user`(`username`, `projectName`, `isOwner`) 
+$sql2=$conn->prepare("INSERT INTO `project-user`(`username`, `projectName`, `isOwner`) ;
 	      VALUES (:username,:projectName, :isOwner)");
 		  $sql2->execute(['username'=>$user,'projectName'=>$project_name, 'isOwner'=>TRUE]);
 

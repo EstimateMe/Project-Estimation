@@ -80,9 +80,13 @@ $a=array();
                                     <input type="text" name="task_title" id="task_title"> 
 									Описание
                                     <textarea rows="5" cols="50" name="task_description" id="task_description" form="create-task-form"> </textarea>
+									Избери изпълнител на задачата:
+									<input type="text" id="assigned_to" name="assigned_to"> 
+
+									
 									
 									<!--pass the possible tag values to a hidden filed-->
-                                    <input type='hidden' id='arr' value='<?php echo ' "'.implode(',', $a).'" ' ?>'>
+                                    <input type='hidden' id='arr' value='<?php echo implode(',', $a) ?>'>
                                     <script type="text/javascript">
                                         //Functionality for tag display and autofill
                                         $(function() {
