@@ -37,7 +37,7 @@ if($q->rowCount() == 0) //no task with such title and project_name combination -
 	
   
 $sql=$conn->prepare("INSERT INTO `task`(`title`, `description`, `project_name`,`expert_estimation`,`tags`, `username`, `created_at`) 
-	      VALUES (:title,:description,:project_name,:tags, :user, :created_at)");
+	      VALUES (:title,:description,:project_name,:expert_estimation,:tags, :user, :created_at)");
 		  $sql->execute(['title'=>$title,'description'=>$description,'project_name'=>$project_name,'expert_estimation'=>$expert_est,'tags'=>$tags,
 		  'user'=>$username, 'created_at'=>$rescheduled_date]);
 		  

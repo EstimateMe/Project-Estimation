@@ -86,7 +86,7 @@ $a=array();
 									
 									
 									<!--pass the possible tag values to a hidden filed-->
-                                    <input type='hidden' id='arr' value='<?php echo ' "'.implode(',', $a).'" ' ?>'>
+                                    <input type='hidden' id='arr' value='<?php echo implode(',', $a) ?>'>
                                     <script type="text/javascript">
                                         //Functionality for tag display and autofill
                                         $(function() {
