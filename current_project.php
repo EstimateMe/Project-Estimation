@@ -50,19 +50,20 @@ $a=array();
                         <div>
                         </div>
                         <div>
-                            <table class="tasks-table">
+                            <table class="tasks-table" id="tasks-table">
                                 <tr>
+                                    <th>Статус</th>
                                     <th>Име на задачата</th>
-                                    <th>Описание</th>
-                                    <th>Сложност</th>
+                                    <th>Експертна сложност</th>
                                 </tr>
                                 <?php 
                             foreach($tasks as $task) {
                             $title = $task->title;
-                            $description = $task->description;
-                              echo '<tr> <td>' . $title . '</td> <td>'
-                                    . $description 
-                                    . '</td> <td> 3 </td> </tr>';
+                            $status = $task->status;
+                            $expert_estimation =$task->expert_estimation;
+                              echo '<tr> <td>' . $status . '</td> <td>'
+                                    . $title 
+                                    . '</td> <td>' .$expert_estimation. ' </td> </tr>';
                             }
                             ?>
                             </table>

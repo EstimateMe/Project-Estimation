@@ -5,8 +5,7 @@ background: #DB4C2C;
 padding: 20px;
 border-radius: 50px;
 border: none;
-position: relative;
-left: 75%;
+margin: 20px;
 top: 20;
  }
  
@@ -21,7 +20,7 @@ border: none;
 text-align: center;
 
     position:relative;
-    top:50%; 
+    top:40; 
     left:40%;
  }
 
@@ -54,7 +53,7 @@ text-align: center;
   padding: 20px;
   border: 1px solid #888;
   width: 40%;
-  height: 50%;
+  height: 45%;
 }
 
 input[type=text]
@@ -79,7 +78,7 @@ textarea {
 }
 
 .tasks-table {
-   border: 2px solid #DB4C2C;
+   border: 2px solid #FFE8E3;
   background-color: #FFF4F0;
    border-collapse: collapse;
    width: 80%;
@@ -88,7 +87,7 @@ textarea {
 }
 
 table, td {
-  border: 1px solid black;
+  border: 1px solid #FFE8E3;
 }
 
 td {
@@ -105,5 +104,5 @@ th {
   background-color: #DB4C2C;
   color: #FFE8E3;
   text-align: center;
- 
+  border: 1px solid #FFE8E3;
 }

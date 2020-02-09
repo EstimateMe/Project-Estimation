@@ -1,4 +1,5 @@
 window.onload = function () {
+  addRowHandlers()
   console.log('loaded');
 // Get the modal
 var modal = document.getElementById("myModal");
@@ -22,6 +23,7 @@ window.onclick = function(event) {
   }
 }
 
+// similar task search logic
 const input = document.querySelector('input');
 const log = document.getElementById('values');
 
@@ -44,4 +46,20 @@ $('#task_description').html(data);
 });
 });
 
+// logic for opening a modal when clicking on already created task row
+function addRowHandlers() {
+  var table = document.getElementById("tasks-table");
+  var rows = table.getElementsByTagName("tr");
+  for (i = 0; i < rows.length; i++) {
+    var currentRow = table.rows[i];
+    var createClickHandler = function(row) {
+      return function() {
+        var cell = row.getElementsByTagName("td")[0];
+        var id = cell.innerHTML;
+        alert("TODO: The creation modal should open prepopulated after row clicked.");
+      };
+    };
+    currentRow.onclick = createClickHandler(currentRow);
+  }
+}
 }
