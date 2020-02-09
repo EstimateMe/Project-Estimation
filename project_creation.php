@@ -18,7 +18,7 @@ $sql=$conn->prepare("INSERT INTO `project`(`name`, `created_at`)
 	      VALUES (:project_name, :created_at)");
 		  $sql->execute(['project_name'=>$project_name, ':created_at'=>$timestamp]);
 		  
-$sql2=$conn->prepare("INSERT INTO `project-user`(`username`, `projectName`, `isOwner`) 
+$sql2=$conn->prepare("INSERT INTO `project-user`(`username`, `projectName`, `isOwner`) ;
 	      VALUES (:username,:projectName, :isOwner)");
 		  $sql2->execute(['username'=>$user,'projectName'=>$project_name, 'isOwner'=>TRUE]);
 
