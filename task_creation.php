@@ -36,10 +36,10 @@ if($q->rowCount() == 0) //no task with such title and project_name combination -
 	}
 	
   
-$sql=$conn->prepare("INSERT INTO `task`(`title`, `description`, `project_name`,`expert_estimation`,`tags`, `user`, `creation_date`) 
-	                            VALUES (:title, :description, :project_name, :expert_estimation, :tags, :user, :creation_date)");
-		  $sql->execute(['title'=>$title,'description'=>$description,'project_name'=>$project_name,
-		  'expert_estimation'=>$expert_est,'tags'=>$tags, 'user'=>$username, 'creation_date'=>$rescheduled_date]);
+$sql=$conn->prepare("INSERT INTO `task`(`title`, `description`, `project_name`,`expert_estimation`,`tags`, `username`, `created_at`) 
+	      VALUES (:title,:description,:project_name,:expert_estimation,:tags, :user, :created_at)");
+		  $sql->execute(['title'=>$title,'description'=>$description,'project_name'=>$project_name,'expert_estimation'=>$expert_est,'tags'=>$tags,
+		  'user'=>$username, 'created_at'=>$rescheduled_date]);
 		  
 		 //new code 
 $sum = 	0;
