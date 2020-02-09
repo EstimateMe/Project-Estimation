@@ -56,16 +56,24 @@ $a=array();
                                     <th>Име на задачата</th>
                                     <th>Експертна сложност</th>
                                 </tr>
-                                <?php 
-                            foreach($tasks as $task) {
-                            $title = $task->title;
-                            $status = $task->status;
-                            $expert_estimation =$task->expert_estimation;
-                              echo '<tr> <td>' . $status . '</td> <td>'
-                                    . $title 
-                                    . '</td> <td>' .$expert_estimation. ' </td> </tr>';
-                            }
-                            ?>
+                                <?php foreach($tasks as $task): ?>
+                                <tr>
+                                <td>
+                                <form id="change-status" name="change_status_form" method="post" action="change_status.php"> 
+                                <select name="status-select">        
+                                    <option value="to_do">TO DO</option>
+                                    <option value="in_progress">IN PROGRESS</option>
+                                    <option value="finished">DONE</option>
+                                </select>
+                                <input type="submit" name="submit" value="Смени"/>
+                                <input type="hidden" name="task_name" value='<?php echo "$task->title";?>'/>
+                                </form>
+                              </td>
+                                <td><?php echo $task->title; ?></td>
+                                <td><?php echo $task->expert_estimation; ?></td>
+                                </tr>
+                                <?php endforeach; ?>
+<!-- tuk -->
                             </table>
                         </div>
                         <!-- The Modal -->
