@@ -6,7 +6,6 @@ require_once('dbConnect.php');
 $user = $_POST['user'];
 $project_name=$_POST['project_name'];
 $timestamp = date('Y-m-d H:i:s');
-echo $timestamp;
 
 $q = $conn->prepare("SELECT * FROM `project` WHERE name=:project_name");
 $q->execute(['project_name'=>$project_name]);
