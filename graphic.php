@@ -42,6 +42,7 @@
 		}
 		$array[$i->format('Y-m-d')]=$sum_task_hours;
     }
+	
 
 if ($x_value_of_tasks>0)
 {
@@ -64,7 +65,7 @@ $one_unit = $max_height / $exp_estimation;
  <h3 style="text-align:center">Burn down chart (Estimated):</h3>
 
 <svg viewbox = "0 0 <?php echo $max_width . " ". $max_height; ?>
- " style="font-size:12px; font-family:tahoma; background-color:white; width:50%; display:block; margin:auto;">
+ " style="font-size:10px; font-family:tahoma; background-color:white; width:50%; display:block; margin:auto;">
 
  <?php
    $x_value = $x_interval;
@@ -81,7 +82,11 @@ $one_unit = $max_height / $exp_estimation;
 	   	 /*  reverted: $y = $max_height -($value * $one_unit);*/
 
 echo "<polyline points='$x_value,0 $x_value,$max_height' style = 'stroke:#BEBEBE;'/>";
-echo "<polyline points='0,$y_value $max_width,$y_value' style = 'stroke:#BEBEBE;'/>";
+echo "<polyline points='10,$y_value $max_width,$y_value' style = 'stroke:#BEBEBE;'/>";
+
+
+$elements .= "<text x=0 y=$y_value style='fill:black;'>". ($max_height-$y_value)/$one_unit . "</text>";
+
 
 $elements .= "<text x='$x_value' y=$max_height style='fill:black;'>$key</text>";
 
@@ -96,8 +101,8 @@ $elements .= "<circle r='5' cx = '$x_value', cy='$y' style='stroke:black; fill:#
 	   $y_value +=$y_interval;
 	   
    }
-    
-	echo "<polyline points='0,$y_value $max_width,$y_value' style = 'stroke:#BEBEBE;'/>";
+    echo "<text x=0 y=$y_value style='fill:black;'>". ($max_height-$y_value)/$one_unit . "</text>";
+	echo "<polyline points='10,$y_value $max_width,$y_value' style = 'stroke:#BEBEBE;'/>";
     echo "<polyline points =  '$ideal_line' style='stroke:red; fill:none'/>";
     echo "<polyline points = '$points' style='stroke:green; fill:none'/>";
     
