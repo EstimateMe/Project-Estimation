@@ -24,16 +24,16 @@ if($q->rowCount() == 0) //no task with such title and project_name combination -
 	WHERE project_name=:project_name && username=:user && (datediff(created_at, date)*5,6)<expert_estimation");
     $q->execute(['user'=>$username, 'project_name'=>$project_name]);
 	if($q->rowCount() > 0)
-	{$row = $q->fetch(PDO:FETCH_OBJ);
-	$started_date = new DateTime($row->created_at;);
-	$needed_days = ($row->expert_estimation) / 5,6;
+	{
+    $row = $q->fetch(PDO::FETCH_OBJ);
+	$started_date = new DateTime($row->created_at);
+	$needed_days = ($row->expert_estimation) / 5.6;
 	$rescheduled_date = date_modify($started_date, '+'.$needed_days.' days');
 	}
 	else
 	{
 		$rescheduled_date = date('Y-m-d H:i:s');
 	}
-	
 	
   
 $sql=$conn->prepare("INSERT INTO `task`(`title`, `description`, `project_name`,`expert_estimation`,`tags`, `username`, `created_at`) 
