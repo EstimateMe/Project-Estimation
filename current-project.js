@@ -1,5 +1,4 @@
 window.onload = function () {
-  addRowHandlers()
   console.log('loaded');
 // Get the modal
 var modal = document.getElementById("myModal");
@@ -23,7 +22,6 @@ window.onclick = function(event) {
   }
 }
 
-// similar task search logic
 const input = document.querySelector('input');
 const log = document.getElementById('values');
 
