@@ -14,3 +14,26 @@ a{
 	   color:black;
 	 
  }
+ 
+ #title_project {
+ overflow: hidden;
+ text-align: center;
+}
+#title_project:before,
+#title_project:after {
+ background-color: #DB4C2C;
+ content: "";
+ display: inline-block;
+ height: 1px;
+ position: relative;
+ vertical-align: middle;
+ width: 50%;
+}
+#title_project:before {
+ right: 0.5em;
+ margin-left: -50%;
+}
+#title_project:after {
+ left: 0.5em;
+ margin-right: -50%;
+}

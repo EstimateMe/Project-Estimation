@@ -68,6 +68,12 @@ $a=array();
                             ?>
                             </table>
                         </div>
+					 <!-- new code -->
+					 <br>
+					 <br>
+					<div id="expertEstChart"> <?php  require_once('graphic.php'); ?> </div>
+					<!--!>
+					
                         <!-- The Modal -->
                         <div id="myModal" class="modal">
 

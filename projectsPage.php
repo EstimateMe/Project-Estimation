@@ -48,16 +48,21 @@ session_start();
 
 	 <?php
 	 
-	 
-  $sql = 'SELECT * FROM `project-user` where username=?';
+   
+  $sql = 'SELECT project_name FROM `task` 
+  where user=?
+  union 
+  Select projectName from `project-user`
+  where username=?';
   $stmt = $conn->prepare($sql);
-  $stmt->execute([$user]);
-  $projectUsers = $stmt->fetchAll();
+  $stmt->execute([$user, $user]);
+  $projects = $stmt->fetchAll();
   
   $TRUE_ST = true;
-   foreach($projectUsers as $projectUser){
-   $projectName = $projectUser->projectName;
+   foreach($projects as $project){
+   $projectName = $project->project_name;
    
+   //намира създателя
   $sql = 'SELECT * FROM `project-user` where projectName=? && isOwner=?';
   $stmt = $conn->prepare($sql);
   $stmt->execute([$projectName, $TRUE_ST]);
@@ -70,15 +75,16 @@ session_start();
   $row = $stmt->fetch();
   $creationDate= $row->created_at;
   $estimateProject=$row->expert_estimation;
+  
+  
   echo '<a href="current_project.php?name=' . $projectName . '"> <span class="projectBox" >';
-	  print('<h3>' . $projectName . '</h3>' 
+	  print('<h3 id="title_project">' . $projectName . '</h3>' 
 	   . 'The owner is: '
 	   . $lead 
 	   . '<br> <br>'
 	   . 'created at: '
-	   . '<br>'
 	   . $creationDate
-	   . '<br> <br>'
+	   . '<br><br>'
 	   . 'Expert estimation: '
 	   . $estimateProject
 	   . '<br>');
@@ -86,9 +92,6 @@ session_start();
     
   }
 	 ?>
-	 
-	
-	
 	</main>
 		<footer id="end">
 			
