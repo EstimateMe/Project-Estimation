@@ -20,8 +20,8 @@
    
    $stmt = $conn->prepare("SELECT * FROM `task` WHERE project_name=:project_name && creation_date<=:point_in_time");
    $stmt->execute(['project_name'=>$project_name, 'point_in_time'=>($i->format('Y-m-d'))]); 
-		   
-		 $sum_task_hours = 0;
+        date_modify($i, '+1 day');			
+		$sum_task_hours = 0;
 		 $x_value_of_tasks = 0;
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 			$x_value_of_tasks += 1;
@@ -35,8 +35,11 @@
 	 $sum_task_hours = $sum_task_hours + $row['expert_estimation'];
      }
 	}
+		 date_modify($i, '-1 day');	
 		$array[$i->format('Y-m-d')]=$sum_task_hours;
-		date_modify($i, '+1 day');	
+		 date_modify($i, '+1 day');	
+
+		
     }
 	
 
