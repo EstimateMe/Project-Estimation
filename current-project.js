@@ -32,15 +32,19 @@ function updateValue(e) {
 }
 
 $('#display-button').click(function(){
-var tasktitle=$('#task_title').val();
+	
+var tags=$('#tags').val();
+//console.log(typeof tags);//string
 
 $.ajax({
 method: "post",
-url: "similar_task.php",
-data:{title:tasktitle}
+url: "estimate_task.php",
+data:{tags:tags}
 })
 .done(function(data){
-$('#task_description').html(data);
+//console.log('result');
+$('#hours').val(data);
+
 });
 });
 

@@ -109,11 +109,11 @@ $a=array();
 									Тагове
 									<input type="text" id="tags" name="tags">
 									Часове
-									<input type="text" id="hours" name="hours">
+									<input type="text" id="hours" name="hours" value='0'>
 
                                     <input id="create-button" type="submit" name="submit" class="btn" value="Създай">
 									
-                                    <input id="display-button" type="button" name="display-button" class="btn" value="Покажи сходна задача">
+                                    <input id="display-button" type="button" name="display-button" class="btn" value="Оцени задача">
                                 </form>
                             </div>
 

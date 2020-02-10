@@ -75,6 +75,9 @@
 					} else {
 						bg.value = "";
 					}
+					
+					//ajax request to get the data
+					console.log('banan');
 				});
 			}
 	
