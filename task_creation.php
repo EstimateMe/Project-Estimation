@@ -16,12 +16,12 @@ $username=$_POST['assigned_to'];
 $q = $conn->prepare("SELECT * FROM user WHERE title=:title, project_name=:project_name");
 $q->execute(['title'=>$title, 'project_name'=>$project_name]);
 
-$date = date_create();
+$today = date_create();
 
 if($q->rowCount() == 0) //no task with such title and project_name combination - these two forms the key for a task sp they have to be unique
 {
 	$q = $conn->prepare("SELECT * FROM task
-	WHERE project_name=:project_name && username=:user && (datediff(creation_date, date)*5,6)<expert_estimation");
+	WHERE project_name=:project_name && username=:user && (datediff(creation_date, today)*5,6)<expert_estimation");
     $q->execute(['user'=>$username, 'project_name'=>$project_name]);
 	if($q->rowCount() > 0)
 	{
