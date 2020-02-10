@@ -18,5 +18,45 @@
         "tags": "button,event"
        }
     ]
+  },
+  {
+    "name": "DEMO",
+    "tasks": [
+      {
+         "title": "Прикачане на изображение",
+         "tags": "picture,column",
+         "description": "При отваряне на модал за създаване на стая, да има кламерче за прикачане с действаща функционалност. "
+      },
+      {
+         "title": "Download hyperlink",
+         "tags": "hyperlink,php",
+         "description": "Когато потребителят кликне на линка, да се сваля файл с име temp.png"
+      },
+      {
+         "title": "Login form",
+         "tags": "html,hyperlink,picture,php,connect to db,column,event,ajax request,table",
+         "description": "Да се имплементира Login form"
+      },
+      {
+         "title": "Модал",
+         "tags": "javascript,event,ajax request",
+         "description": "При клик на ред от таблицата с всички задачи, да се появява модал."
+      },
+      {
+         "title": "Upload на снимка",
+         "tags": "picture,php,database,ajax request,page,table",
+         "description": "Потребителят да има възможност да качи снимка."
+      },
+      {
+         "title": "Изпълняване на заявки",
+         "description": "",
+         "tags": "sql,javascript"
+      },
+      {
+         "title": "Koлона user",
+         "tags": "table,database",
+         "description": "Да се създаде в базата колона user"
+      }
+   ]
   }
 ]
