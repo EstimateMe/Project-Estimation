@@ -17,9 +17,9 @@ $stmt->execute(['project_name'=>$project_name]);
 $tasks = $stmt->fetchAll();
 
 $json_data=array();//create the array 
-$json_data=array();//create the array  
 foreach($tasks as $task)//foreach loop  
 {  
+    $json_array=array();//create the array  
     $json_array['title']=$task->title;
     $json_array['expert_estimation']=$task->expert_estimation;    
     $json_array['actual_hours']=$task->actual_hours;    
@@ -33,7 +33,9 @@ foreach($tasks as $task)//foreach loop
 }  
   
 //built in PHP function to encode the data in to JSON format  
-echo json_encode($json_data);  
+echo "<pre>"; 
+echo json_encode($json_data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);  
+echo "</pre>";
  ?>
 
 
