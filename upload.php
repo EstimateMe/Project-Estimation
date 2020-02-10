@@ -18,7 +18,7 @@
                 </td>
             </tr>
             <tr>
-                <td> Импортирай ПРОЕКТИ в json формат </td>
+                <td> Импортирай ПРОЕКТИ със ЗАДАЧИ в json формат </td>
 
                 <td>
                     <form action="import_projects.php" method="post" enctype="multipart/form-data">
