@@ -7,7 +7,7 @@
 			<img width=40%  src="images/logo.png"> </a> 
 			<a href="projectsPage.php">Проекти</a>
 			<a href="upload.php">Импорт</a>
-			<a href="#">Експорт</a>
+			<a href="get_all_projects.php">Експорт</a>
 			<a href="#profile">Профил</a>
 			<a href="logout.php">Изход</a>
 	</nav>
