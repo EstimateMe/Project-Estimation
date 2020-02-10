@@ -1,5 +1,5 @@
 window.onload = function () {
-  console.log('loaded');
+  addRowHandlers();
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -7,7 +7,6 @@ var modal = document.getElementById("myModal");
 var btn = document.getElementById("create-task-button");
 
  var clickHandler = function() {
-  console.log('clicked');
   modal.style.display = "block";
 }
 
@@ -16,7 +15,6 @@ btn.addEventListener('click', clickHandler);
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  console.log('outside');
   if (event.target == modal) {
     modal.style.display = "none";
   }
@@ -32,15 +30,19 @@ function updateValue(e) {
 }
 
 $('#display-button').click(function(){
-var tasktitle=$('#task_title').val();
+	
+var tags=$('#tags').val();
+//console.log(typeof tags);//string
 
 $.ajax({
 method: "post",
-url: "similar_task.php",
-data:{title:tasktitle}
+url: "estimate_task.php",
+data:{tags:tags}
 })
 .done(function(data){
-$('#task_description').html(data);
+//console.log('result');
+$('#hours').val(data);
+
 });
 });
 
@@ -60,4 +62,6 @@ function addRowHandlers() {
     currentRow.onclick = createClickHandler(currentRow);
   }
 }
+
+
 }

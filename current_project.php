@@ -56,16 +56,24 @@ $a=array();
                                     <th>Име на задачата</th>
                                     <th>Експертна сложност</th>
                                 </tr>
-                                <?php 
-                            foreach($tasks as $task) {
-                            $title = $task->title;
-                            $status = $task->status;
-                            $expert_estimation =$task->expert_estimation;
-                              echo '<tr> <td>' . $status . '</td> <td>'
-                                    . $title 
-                                    . '</td> <td>' .$expert_estimation. ' </td> </tr>';
-                            }
-                            ?>
+                                <?php foreach($tasks as $task): ?>
+                                <tr>
+                                <td>
+                                <!-- TODO: submit status change with AJAX Ask Svetle how -->
+                                <form id="change-status" name="change_status_form" method="post" action="change_status.php"> 
+                                <select name="status-select">        
+                                    <option value="to_do">TO DO</option>
+                                    <option value="in_progress">IN PROGRESS</option>
+                                    <option value="finished">DONE</option>
+                                </select>
+                                <input type="submit" name="submit" value="Смени"/>
+                                <input type="hidden" name="task_name" value='<?php echo "$task->title";?>'/>
+                                </form>
+                              </td>
+                                <td><?php echo $task->title; ?></td>
+                                <td><?php echo $task->expert_estimation; ?></td>
+                                </tr>
+                                <?php endforeach; ?>
                             </table>
                         </div>
 					 <!-- new code -->
@@ -115,11 +123,11 @@ $a=array();
 									Тагове
 									<input type="text" id="tags" name="tags">
 									Часове
-									<input type="text" id="hours" name="hours">
+									<input type="text" id="hours" name="hours" value='0'>
 
                                     <input id="create-button" type="submit" name="submit" class="btn" value="Създай">
 									
-                                    <input id="display-button" type="button" name="display-button" class="btn" value="Покажи сходна задача">
+                                    <input id="display-button" type="button" name="display-button" class="btn" value="Оцени задача">
                                 </form>
                             </div>
 
