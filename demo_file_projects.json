@@ -10,33 +10,27 @@
         "expert_estimation": 2,
         "tags": "html,css,javascript"
        }, 
-       {
-        "title": "Създаване на таблица Потребители в базата",
-        "description": "Да се създаде таблица Потребители в базата, която с полета име и парола.",
-        "expert_estimation": "1",
-        "tags": "connect to db"
-       },
        { 
         "title": "Валидация на Login форма",
         "description": "Потребителското име трябва да е уникално. Паролата да съдържа една цифра, един специален символ и една главна буква",
-        "expert_estimation": "2",
+        "expert_estimation": 2,
         "tags": "hyperlink"
        },
        {
         "title": "Бутон Създай задача",
         "description": "Да се направи бутон Създай задача, който при кликване, отваря модал с текстови полета за име и описание на задачата",
-        "expert_estimation": "3",
+        "expert_estimation": 3,
         "tags": "javascript"
        },
        { 
         "title": "Импорт на потребители",
         "description": "Да се имплементира импорт на потребители в JSON формат.",
-        "expert_estimation": "5",
+        "expert_estimation": 5,
         "tags": "html,css,javascript"
        },
        { "title": "Навигация",
         "description": "Навигация на системата",
-        "expert_estimation": "3",
+        "expert_estimation": 3,
         "tags": "validation"
        }
     ]
