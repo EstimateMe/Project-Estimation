@@ -11,17 +11,20 @@ $projects = $stmt->fetchAll();
 ?>
 
 <html>
-
+<head>
+<link href="css/get_all_projects.css" rel="stylesheet">
+</head>
 <body>
     <?php require_once('nav_menu.php') ?>
-    <div>
+    <div class="direction">За да експортнете към JSON формат задачите по даден проект, моля изберете име на проект:</div>
+    <div class="center">
         <form method="post" action="export.php">
             <select name="selected_project_name">
                 <?php foreach($projects as $project ) {?>
                 <option value="<?php echo $project->name; ?>"> <?php echo $project->name; ?> </option>
                 <?php } ?>
             </select>
-            <input type="submit" name="submit"/>
+            <input class="export-button" type="submit" name="submit" value="Export to JSON"/>
         </form>
     </div>
 </body>
