@@ -1,7 +1,5 @@
 <?php
    $array = array();
-
-   $today = date_create();
    
    $stmt=$conn->prepare("Select * from project WHERE name=:project_name");
    $stmt->execute(['project_name'=>$project_name]);
@@ -15,46 +13,37 @@
    $sum_task_hours = 0;
    $x_value_of_tasks = 0;
    $interval = 0;
-   $today = date_modify($today, '+1 day');
-   for ($i=new DateTime($datetime); $i <= $today; date_modify($i, '+1 day')){
-   
+   $i=new DateTime($datetime);
+
+   while($sum_task_hours != $exp_estimation)
+   {
    
    $stmt = $conn->prepare("SELECT * FROM `task` WHERE project_name=:project_name && creation_date<=:point_in_time");
    $stmt->execute(['project_name'=>$project_name, 'point_in_time'=>($i->format('Y-m-d'))]); 
 		   
-		    $sum_task_hours = 0;
-		   $x_value_of_tasks = 0;
+		 $sum_task_hours = 0;
+		 $x_value_of_tasks = 0;
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 			$x_value_of_tasks += 1;
 
-
      $date_creation = new DateTime($row['creation_date']); 
-	  echo $date_creation->format('Y,m,d') . '<br>';
+
      $interval = ($date_creation->diff($i))->d;
-	 echo $interval . '<br>';
 
      if($row['expert_estimation'] <= (5.6*$interval))//productive 5,6
 	 {
 	 $sum_task_hours = $sum_task_hours + $row['expert_estimation'];
-
      }
-	 else if ($i == $today)
-	 {
-		 $today = date_modify($today, '+1 day');
-	 }
-			
-		}
+	}
 		$array[$i->format('Y-m-d')]=$sum_task_hours;
-		    }
+		date_modify($i, '+1 day');	
+    }
 	
 
 if ($x_value_of_tasks>0)
 {
-	echo $i->format('Y-m-d');
-	echo $started_date->format('Y-m-d');
-  //$work_completion_est = (ceil($days_estimated) / $x_value_of_tasks);   //5,6 hours productivity of programmers;
   $work_completion_est = (date_diff($started_date, $i)->format('%d'));	;
-  echo (date_diff($started_date, $i)->format('%d'));
+
 	
 $max_width = 500;
 $max_height = 200;
@@ -73,7 +62,7 @@ $one_unit2= ($max_height - 2*$y_interval)/$exp_estimation;
  <h3 style="text-align:center">Burn down chart (Estimated):</h3>
 
 <svg viewbox = "0 0 <?php echo $max_width . " ". $max_height; ?>
- " style="font-size:10px; font-family:tahoma; background-color:white; width:50%; display:block; margin:auto;">
+ " style="font-size:9px; font-family:tahoma; background-color:white; width:50%; display:block; margin:auto;">
 
  <?php
    $x_value = $x_interval;
