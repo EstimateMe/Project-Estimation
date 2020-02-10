@@ -44,8 +44,6 @@ $a=array();
                     <h1 class="description"> Описание на Проекта </h1>
                     <div>
                         <br>
-                        <br>
-                        <br>
                         <!-- TODO: populate description from DB -->
                         <div>
                         </div>
@@ -93,7 +91,7 @@ $a=array();
                                     Заглавие
                                     <input type="text" name="task_title" id="task_title"> 
 									Описание
-                                    <textarea rows="5" cols="50" name="task_description" id="task_description" form="create-task-form"> </textarea>
+                                    <textarea rows="2" cols="50" name="task_description" id="task_description" form="create-task-form"> </textarea>
 									Избери изпълнител на задачата:
 									<input type="text" id="assigned_to" name="assigned_to"> 
 

@@ -1,6 +1,6 @@
 <?php
 
-$tags=$_POST['tags'];
+$tags=$_POST['tags']; // предадено от ajax data
 
 if(empty($tags))
 echo 0;
@@ -28,7 +28,7 @@ if($q->rowCount() != 0)
 }
 endforeach;
 
-echo $sum;
+echo $sum; // връща се като data на .done ajax
 }
 
 ?>

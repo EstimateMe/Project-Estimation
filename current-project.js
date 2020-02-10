@@ -30,14 +30,14 @@ function updateValue(e) {
 }
 
 $('#display-button').click(function(){
-	
+// взима стринга с таговете
 var tags=$('#tags').val();
 //console.log(typeof tags);//string
 
 $.ajax({
 method: "post",
 url: "estimate_task.php",
-data:{tags:tags}
+data:{tags:tags} // първото го ползваме в _task.php, а втоото е стойността на променливата tags
 })
 .done(function(data){
 //console.log('result');
