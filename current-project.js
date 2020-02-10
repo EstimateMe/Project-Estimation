@@ -1,5 +1,5 @@
 window.onload = function () {
-  console.log('loaded');
+  addRowHandlers();
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -7,7 +7,6 @@ var modal = document.getElementById("myModal");
 var btn = document.getElementById("create-task-button");
 
  var clickHandler = function() {
-  console.log('clicked');
   modal.style.display = "block";
 }
 
@@ -16,7 +15,6 @@ btn.addEventListener('click', clickHandler);
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  console.log('outside');
   if (event.target == modal) {
     modal.style.display = "none";
   }
@@ -64,4 +62,6 @@ function addRowHandlers() {
     currentRow.onclick = createClickHandler(currentRow);
   }
 }
+
+
 }
