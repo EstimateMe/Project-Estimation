@@ -56,6 +56,9 @@ $array_size = count($array);
 $x_interval = $max_width  / (ceil($work_completion_est)+2); // with add 1 so as to not to get the points stuck on the edge of the graph
 $y_interval = $max_height / (($array_size)+2);
 
+$y_diff = 0;
+
+
 $one_unit = $max_height / $exp_estimation;
 
    $ideal_line = $x_interval . ', ' . $y_interval . ' ' . ($max_width-$x_interval) . ', ' . ($max_height - $y_interval) . ' ';
@@ -79,13 +82,12 @@ $one_unit = $max_height / $exp_estimation;
    foreach ($array as $key => $value)
    {
 	   $y = ($value * $one_unit) + $y_interval;
-	   	 /*  reverted: $y = $max_height -($value * $one_unit);*/
 
 echo "<polyline points='$x_value,0 $x_value,$max_height' style = 'stroke:#BEBEBE;'/>";
 echo "<polyline points='10,$y_value $max_width,$y_value' style = 'stroke:#BEBEBE;'/>";
 
 
-$elements .= "<text x=0 y=$y_value style='fill:black;'>". ($max_height-$y_value)/$one_unit . "</text>";
+$elements .= "<text x=0 y=$y_value style='fill:black;'>" . (($max_height - $y_diff)/$one_unit) . "</text>";
 
 
 $elements .= "<text x='$x_value' y=$max_height style='fill:black;'>$key</text>";
@@ -99,9 +101,10 @@ $elements .= "<circle r='5' cx = '$x_value', cy='$y' style='stroke:black; fill:#
 	   
 	   $x_value +=$x_interval;
 	   $y_value +=$y_interval;
+	   $y_diff  +=$max_height / ($array_size);
 	   
    }
-    echo "<text x=0 y=$y_value style='fill:black;'>". ($max_height-$y_value)/$one_unit . "</text>";
+    echo  "<text x=0 y=$y_value style='fill:black;'>" . ($max_height - $y_diff) . "</text>";
 	echo "<polyline points='10,$y_value $max_width,$y_value' style = 'stroke:#BEBEBE;'/>";
     echo "<polyline points =  '$ideal_line' style='stroke:red; fill:none'/>";
     echo "<polyline points = '$points' style='stroke:green; fill:none'/>";
