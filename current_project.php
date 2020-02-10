@@ -59,6 +59,7 @@ $a=array();
                                 <?php foreach($tasks as $task): ?>
                                 <tr>
                                 <td>
+                                <!-- TODO: submit status change with AJAX Ask Svetle how -->
                                 <form id="change-status" name="change_status_form" method="post" action="change_status.php"> 
                                 <select name="status-select">        
                                     <option value="to_do">TO DO</option>
@@ -73,7 +74,6 @@ $a=array();
                                 <td><?php echo $task->expert_estimation; ?></td>
                                 </tr>
                                 <?php endforeach; ?>
-<!-- tuk -->
                             </table>
                         </div>
                         <!-- The Modal -->
