@@ -13,6 +13,8 @@ $projects = $stmt->fetchAll();
 <html>
 <head>
 <link href="css/get_all_projects.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="icon.png">
+<title> EstimateMe</title>
 </head>
 <body>
     <?php require_once('nav_menu.php') ?>

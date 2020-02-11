@@ -16,19 +16,28 @@ $username=$_POST['assigned_to'];
 $q = $conn->prepare("SELECT * FROM user WHERE title=:title, project_name=:project_name");
 $q->execute(['title'=>$title, 'project_name'=>$project_name]);
 
-$today = date_create();
+$today = date_create()->format('Y-m-d');
 
 if($q->rowCount() == 0) //no task with such title and project_name combination - these two forms the key for a task sp they have to be unique
 {
-	$q = $conn->prepare("SELECT * FROM task
-	WHERE project_name=:project_name && username=:user && (datediff(creation_date, today)*5,6)<expert_estimation");
-    $q->execute(['user'=>$username, 'project_name'=>$project_name]);
-	if($q->rowCount() > 0)
+  
+
+	$q2 = $conn->prepare("SELECT expert_estimation, creation_date FROM `task` WHERE
+    (datediff(CURRENT_DATE(), creation_date)*5.6)<expert_estimation 
+	&& project_name=:project_name && user=:user
+	&& creation_date >= all(select creation_date from task
+	where project_name=:project_name && user=:user)");
+    $q2->execute(['user'=>$username, 'project_name'=>$project_name]);
+	$row = $q2->fetch(PDO::FETCH_OBJ);
+	
+	
+	if($row)
 	{
-    $row = $q->fetch(PDO::FETCH_OBJ);
 	$started_date = new DateTime($row->creation_date);
 	$needed_days = ($row->expert_estimation) / 5.6;
-	$rescheduled_date = date_modify($started_date, '+'.$needed_days.' days');
+	echo $needed_days;
+	$rescheduled_date = date_modify($started_date, '+'.round($needed_days).' days')->format('Y-m-d H:i:s');
+	echo $rescheduled_date;
 	}
 	else
 	{

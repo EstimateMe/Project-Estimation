@@ -1,5 +1,6 @@
 <html><head>
 <link href="css/nav_menu.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="icon.png">
 </head>
 <body>
     <nav class="menu">
