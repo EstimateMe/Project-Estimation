@@ -8,6 +8,18 @@ $project_name = $_GET['name'];
   $stmt = $conn->prepare($sql);
   $stmt->execute([$project_name]);
   $tasks = $stmt->fetchAll();
+  
+  
+  //account_type
+        $user = $_SESSION['session_user'];
+  	  $sql = 'SELECT * FROM `user` WHERE username=?';
+				 
+				$stmt = $conn->prepare($sql);
+				$stmt->execute([$user]);
+				$row = $stmt->fetch();
+				$accType=$row->account_type;
+   //
+  
 
   //Get the tags from the tags table
   $q = $conn->prepare("SELECT tag FROM tags");
@@ -31,6 +43,7 @@ $a=array();
         <script type="text/javascript" src="autofill.js"></script>
         <script type="text/javascript" src="tags.js"></script>
         <script src="current-project.js"></script>
+		<script src="delete_project.js"></script>
         <title> EstimateMe</title>
     </head>
 
@@ -39,9 +52,15 @@ $a=array();
 
             <main>
                 <div>
-                    <button id="create-task-button">Създай нова задача</button>
 
-                    <h1 class="description"> Описание на Проекта </h1>
+					<?php if ($accType == "Manager"){
+						
+						echo '<button id="create-task-button">Създай нова задача</button>';
+
+                        echo '<button id="delete-project-button">Изтрий проекта</button>';
+				    }?>
+						
+                    <h1 class="description"> <?php echo $project_name?> </h1>
                     <div>
                         <br>
                         <!-- TODO: populate description from DB -->
@@ -130,6 +149,22 @@ $a=array();
                             </div>
 
                         </div>
+						
+
+							
+						 <div id="deleteProject" class="modal">
+                            <div class="delete-content">
+                                <form id="delete-project-form" name="delete-project" method="post" action="project_delete.php">
+                                    Сигурни ли сте че искате да изтриете този проект? Всички задачи към него ще бъдат изгубени?
+									 <input type="hidden" name="user" value='<?php echo "$user";?>' />
+							         <input type="hidden" name="project" value='<?php echo "$project_name";?>' />
+                                     <input id="delete-yes" type="submit" name="yes" class="btn" value="Да">
+								     <input id="delete-no" type="button" name="no" class="btn" value="Не">
+                                </form>
+                            </div>
+                        </div>
+						
+						
                     </div>
                 </div>
 
