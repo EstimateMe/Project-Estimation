@@ -11,15 +11,18 @@ var modal = document.getElementById("myModal");
 // Get the button that opens the modal
 var btn = document.getElementById("create-task-button");
 
+ var clickHandler2 = function() {
+  modal2.style.display = "block";
+}
  var clickHandler = function() {
   modal.style.display = "block";
+
 }
-
-
-btn2.addEventListener('click', clickHandler);
-no_button.addEventListener('click', clickHandler);
-// When the user clicks the button, open the modal 
 btn.addEventListener('click', clickHandler);
+btn2.addEventListener('click', clickHandler2);
+no_button.addEventListener('click', clickHandler2);
+// When the user clicks the button, open the modal 
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
