@@ -39,7 +39,6 @@ Project Estimation
    </form>
    <div id="result"></div>
    </div>
-   <div class="footer"> Made by Diana Ivanova, Svetlana Grueva &amp Yana Zdravkova</div>
 </div>
   
 </body>

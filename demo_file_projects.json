@@ -1,22 +1,42 @@
 [
   {
-    "name": "Project estimation",
+    "name": "DEMO",
     "tasks": [
-      { 
-        "title": "Login form",
-        "description": "Да се създаде login форма, която с полета име и парола.",
-        "tags": "html,css,column,database,javascript,form,page"
-       }, 
-       { 
-        "title": "Login form Validation",
-        "description": "Потребителското име трябва да е уникално. Паролата да съдържа една цифра, един специален символ и една главна буква",
-        "tags": "ajax request,query from db"
-       },
-       {
-        "title": "Create task button",
-        "description": "Да се направи бутон Създай задача, който при кликване, отваря модал с текстови полета за име и описание на задачата",
-        "tags": "button,event"
-       }
-    ]
+      {
+         "title": "Прикачане на изображение",
+         "tags": "picture,column",
+         "description": "При отваряне на модал за създаване на стая, да има кламерче за прикачане с действаща функционалност. "
+      },
+      {
+         "title": "Download hyperlink",
+         "tags": "hyperlink,php",
+         "description": "Когато потребителят кликне на линка, да се сваля файл с име temp.png"
+      },
+      {
+         "title": "Login form",
+         "tags": "html,hyperlink,picture,php,connect to db,column,event,ajax request,table",
+         "description": "Да се имплементира Login form"
+      },
+      {
+         "title": "Модал",
+         "tags": "javascript,event,ajax request",
+         "description": "При клик на ред от таблицата с всички задачи, да се появява модал."
+      },
+      {
+         "title": "Upload на снимка",
+         "tags": "picture,php,database,ajax request,page,table",
+         "description": "Потребителят да има възможност да качи снимка."
+      },
+      {
+         "title": "Изпълняване на заявки",
+         "description": "",
+         "tags": "sql,javascript"
+      },
+      {
+         "title": "Koлона user",
+         "tags": "table,database",
+         "description": "Да се създаде в базата колона user"
+      }
+   ]
   }
 ]

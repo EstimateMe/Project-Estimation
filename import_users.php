@@ -22,7 +22,7 @@ $import_failure_count = 0;
 
 foreach ($data as $userJson) {
     $username = $userJson->username;
-    $password = $userJson->password; 
+    $password = password_hash($userJson->password, PASSWORD_BCRYPT);
     $email = $userJson->email;
     $account_type = $userJson->account_type;
     
