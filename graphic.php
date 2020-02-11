@@ -114,15 +114,17 @@ $elements .= "<circle r='5' cx = '$x_value', cy='$y' style='stroke:black; fill:#
 	echo $elements;
     echo "<circle r='5' cx ='".($x_value-$x_interval)."', cy='".($max_height-$y_interval)."' style='stroke:black; fill:#DB4C2C'/>";
 
-} ?> 
-<h3 style="color:red"> 
+
+
+echo "<h3 style='color:red'> 
  ___ ideal burndown
 </h3>
 
-<h3 style="color:green">
+<h3 style='color:green'>
 ___ remaining tasks
 </h3>
-</div>
+</div>";
+}?> 
 
 
    
