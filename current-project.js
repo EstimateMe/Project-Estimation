@@ -1,7 +1,4 @@
 window.onload = function () {
-  addRowHandlers();
-
-
 var modal2 = document.getElementById("deleteProject");
 var no_button = document.getElementById("delete-no");
 var btn2 = document.getElementById("delete-project-button");
@@ -58,22 +55,21 @@ $('#hours').val(data);
 });
 });
 
-// logic for opening a modal when clicking on already created task row
-function addRowHandlers() {
-  var table = document.getElementById("tasks-table");
-  var rows = table.getElementsByTagName("tr");
-  for (i = 0; i < rows.length; i++) {
-    var currentRow = table.rows[i];
-    var createClickHandler = function(row) {
-      return function() {
-        var cell = row.getElementsByTagName("td")[0];
-        var id = cell.innerHTML;
-        alert("TODO: The creation modal should open prepopulated after row clicked.");
-      };
-    };
-    currentRow.onclick = createClickHandler(currentRow);
-  }
-}
-
-
+document.querySelectorAll('.change_status').forEach(item => {
+  item.addEventListener('click', event => {
+    // взима стринга с таговете
+    var status = $('#status-select').val();
+    var task_title = document.getElementsByName('task_name')[0].value;
+    // console.log('TASK NAME: ', task_title);
+    // console.log('STATUS: ', status);
+    $.ajax({
+      method: "post",
+      url: "change_status.php",
+      data: { status: status, task_title: task_title } // първото го ползваме в _task.php, а втоото е стойността на променливата tags
+    })
+      .done(function (data) {
+        // console.log(data);
+      });
+  })
+})
 }

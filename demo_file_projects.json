@@ -1,25 +1,5 @@
 [
   {
-    "name": "Project estimation",
-    "tasks": [
-      { 
-        "title": "Login form",
-        "description": "Да се създаде login форма, която с полета име и парола.",
-        "tags": "html,css,column,database,javascript,form,page"
-       }, 
-       { 
-        "title": "Login form Validation",
-        "description": "Потребителското име трябва да е уникално. Паролата да съдържа една цифра, един специален символ и една главна буква",
-        "tags": "ajax request,query from db"
-       },
-       {
-        "title": "Create task button",
-        "description": "Да се направи бутон Създай задача, който при кликване, отваря модал с текстови полета за име и описание на задачата",
-        "tags": "button,event"
-       }
-    ]
-  },
-  {
     "name": "DEMO",
     "tasks": [
       {
