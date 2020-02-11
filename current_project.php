@@ -36,7 +36,8 @@ $users = $stmt->fetchAll();
         <script type="text/javascript" src="autofill.js"></script>
         <script type="text/javascript" src="tags.js"></script>
         <script src="current-project.js"></script>
-        <title> EstimateMe</title>
+		<link rel="icon" type="image/png" sizes="32x32" href="icon.png">
+        <title>EstimateMe</title>
     </head>
 
     <body>

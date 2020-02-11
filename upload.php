@@ -2,6 +2,8 @@
 <html>
 <head>
 <link href="css/upload.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="icon.png">
+<title> EstimateMe</title>
 </head>
 <body>
     <?php require_once('nav_menu.php') ?>
