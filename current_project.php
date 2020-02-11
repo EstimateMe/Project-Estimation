@@ -9,14 +9,16 @@ $project_name = $_GET['name'];
   $stmt->execute([$project_name]);
   $tasks = $stmt->fetchAll();
   
+
   //account_type
-        $user = $_SESSION['session_user'];
+      $user = $_SESSION['session_user'];
   	  $sql = 'SELECT * FROM `user` WHERE username=?';
 				 
 				$stmt = $conn->prepare($sql);
 				$stmt->execute([$user]);
 				$row = $stmt->fetch();
 				$accType=$row->account_type;
+				
    //
   
 
@@ -51,7 +53,6 @@ $users = $stmt->fetchAll();
 
 		<link rel="icon" type="image/png" sizes="32x32" href="icon.png">
         <title>EstimateMe</title>
-
     </head>
 
     <body>
@@ -159,7 +160,6 @@ $users = $stmt->fetchAll();
                             <div class="delete-content">
                                 <form id="delete-project-form" name="delete-project" method="post" action="project_delete.php">
                                     Сигурни ли сте, че искате да изтриете този проект? Всички задачи към него ще бъдат изгубени?
-									 <input type="hidden" name="user" value='<?php echo "$user";?>' />
 							         <input type="hidden" name="project_name" value='<?php echo "$project_name";?>' />
                                      <input id="delete-yes" type="submit" name="submit" class="btn" value="Да">
 								     <button type="button" id="delete-no">Не</button>

@@ -13,8 +13,8 @@ $q->execute(['project_name'=>$project_name]);
 $q->execute(['projectName'=>$project_name]);
 
  $q = $conn->prepare("Delete FROM `task`
- WHERE project_name=:project_name && username=:username");
-$q->execute(['project_name'=>$project_name, 'username'=>$user]);
+ WHERE project_name=:project_name");
+$q->execute(['project_name'=>$project_name]);
 
 
   echo "\nProject successfully deleted!";
