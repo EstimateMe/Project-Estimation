@@ -16,7 +16,6 @@ body {
 	padding: 10px;
 	box-shadow: 0px 3px 0px 0px #d4d4d4;
 	border: 1px solid #d4d4d4;
-	border-radius: 12px;
 	margin: 0 auto;
 	margin-top: 50px;
 	background-color: #FFFFFF;
@@ -31,7 +30,6 @@ select {
 	margin-bottom: 10px;
 	margin-top: 15px;
 	padding: 15px;
-	border-radius: 10px;
 }
 .header {
 	font-size: 30px;

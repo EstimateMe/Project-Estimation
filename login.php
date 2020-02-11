@@ -67,7 +67,6 @@ if ($msg != "")
    <a href="register.php" class="btn">Регистрация</a>
    </form>
    </div>
-   <div class="footer"> Made by Diana Ivanova, Svetlana Grueva &amp Yana Zdravkova</div>
 </div>  
 
 </body>
