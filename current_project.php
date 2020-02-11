@@ -2,13 +2,12 @@
 // Start the session
 session_start();
 $project_name = $_GET['name'];
-   require_once('dbConnect.php');
+ require_once('dbConnect.php');
   $sql = 'SELECT * FROM `task` where project_name=?';
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
   $stmt = $conn->prepare($sql);
   $stmt->execute([$project_name]);
   $tasks = $stmt->fetchAll();
-  
   
   //account_type
         $user = $_SESSION['session_user'];
@@ -40,27 +39,27 @@ $a=array();
         <link href="css/current-project.css" rel="stylesheet">
         <link rel="stylesheet" href="tags.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	   
         <script type="text/javascript" src="autofill.js"></script>
         <script type="text/javascript" src="tags.js"></script>
         <script src="current-project.js"></script>
-		<script src="delete_project.js"></script>
+
         <title> EstimateMe</title>
     </head>
 
     <body>
-        <?php require_once('nav_menu.php') ?>
-
-            <main>
-                <div>
-
-					<?php if ($accType == "Manager"){
+        <?php require_once('nav_menu.php') ;
+		if ($accType == "Manager"){
 						
 						echo '<button id="create-task-button">Създай нова задача</button>';
 
                         echo '<button id="delete-project-button">Изтрий проекта</button>';
-				    }?>
+		}
+		?>
+            <main>
+                <div>
 						
-                    <h1 class="description"> <?php echo $project_name?> </h1>
+                    <h1 class="description"> <?php echo $project_name;?> </h1>
                     <div>
                         <br>
                         <!-- TODO: populate description from DB -->
@@ -98,7 +97,6 @@ $a=array();
 					 <br>
 					<div id="expertEstChart"> <?php  require_once('graphic.php'); ?> </div>
 					<!--!>
-					
                         <!-- The Modal -->
                         <div id="myModal" class="modal">
 
@@ -114,8 +112,6 @@ $a=array();
 									Избери изпълнител на задачата:
 									<input type="text" id="assigned_to" name="assigned_to"> 
 
-									
-									
 									<!--pass the possible tag values to a hidden filed-->
                                     <input type='hidden' id='arr' value='<?php echo implode(',', $a) ?>'>
                                     <script type="text/javascript">
@@ -147,20 +143,20 @@ $a=array();
                                     <input id="display-button" type="button" name="display-button" class="btn" value="Оцени задача">
                                 </form>
                             </div>
-
                         </div>
-						
 
-							
-						 <div id="deleteProject" class="modal">
+		 <div id="deleteProject" class="modal">
                             <div class="delete-content">
                                 <form id="delete-project-form" name="delete-project" method="post" action="project_delete.php">
-                                    Сигурни ли сте че искате да изтриете този проект? Всички задачи към него ще бъдат изгубени?
+                                    Сигурни ли сте, че искате да изтриете този проект? Всички задачи към него ще бъдат изгубени?
 									 <input type="hidden" name="user" value='<?php echo "$user";?>' />
-							         <input type="hidden" name="project" value='<?php echo "$project_name";?>' />
-                                     <input id="delete-yes" type="submit" name="yes" class="btn" value="Да">
-								     <input id="delete-no" type="button" name="no" class="btn" value="Не">
+							         <input type="hidden" name="project_name" value='<?php echo "$project_name";?>' />
+                                     <input id="delete-yes" type="submit" name="submit" class="btn" value="Да">
+								     <button type="button" id="delete-no">Не</button>
+
+								   
                                 </form>
+								 
                             </div>
                         </div>
 						
