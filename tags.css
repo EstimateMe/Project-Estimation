@@ -8,13 +8,16 @@
     border-width: thin;
     border-radius:5px;
 }
+
 .tags-wrapper ul {
 	margin:0px;
 	padding:0px;
 }
+
 .tags-wrapper li {
 	float:left;
 }
+
 .tags-wrapper li.tag {
 	font-family:verdana;
 	font-size:11px;
